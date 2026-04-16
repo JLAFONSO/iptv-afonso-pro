@@ -1,1 +1,40 @@
+#EXTM3U
 
+#EXTM3U x-tvg-url="https://iptv-org.github.io/epg/guides.xml.gz"
+
+# ===== BRASIL =====
+#EXTINF:-1,|Brasil
+https://iptv-org.github.io/iptv/countries/br.m3u
+
+#EXTINF:-1,Test Channel
+https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8
+
+# ===== NEWS =====
+#EXTINF:-1 tvg-id="CNN.us" tvg-name="CNN" group-title="News",CNN
+https://turnerlive.warnermediacdn.com/hls/live/586495/cnn/cnn.isml/master.m3u8
+
+#EXTINF:-1 tvg-id="BBCNews.uk" group-title="News",BBC News
+https://vs-cmaf-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:bbc_news24/pc_hd_abr_v2.mpd
+
+#EXTINF:-1 tvg-id="France24.en" group-title="News",France 24
+https://static.france24.com/live/F24_EN_LO_HLS/live_web.m3u8
+
+# ===== SPORTS =====
+#EXTINF:-1 group-title="Sports",Red Bull TV
+https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8
+
+# ===== MOVIES =====
+#EXTINF:-1 group-title="Movies",Pluto Movies
+https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5ca673f2a6506d000965e2d2/master.m3u8
+
+# ===== DOCUMENTARY =====
+#EXTINF:-1 group-title="Documentary",NASA TV
+https://ntv1.mtv.com/playlist.m3u8
+
+# ===== MUSIC =====
+#EXTINF:-1 group-title="Music",MTV Pluto
+https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5ca670f6594b9f000765e50b/master.m3u8
+
+# ===== KIDS =====
+#EXTINF:-1 group-title="Kids",PBS Kids
+https://pbs-kids.streamguys1.com/pbskids/playlist.m3u8
