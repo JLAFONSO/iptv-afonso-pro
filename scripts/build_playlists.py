@@ -1,30 +1,39 @@
-import re
+import requests
+import os
 
-INPUT = "playlists/full.m3u"
-OUTPUT = "playlists/filtered.m3u"
+BASE = "https://iptv-org.github.io/iptv"
 
-# palavras-chave para filtrar
-KEYWORDS = [
-    "news", "sport", "movie", "music",
-    "portugal", "brazil", "africa",
-    "france", "spain", "uk", "usa"
-]
+countries = {
+    "portugal": "countries/pt.m3u",
+    "brazil": "countries/br.m3u",
+    "usa": "countries/us.m3u",
+    "uk": "countries/uk.m3u",
+    "france": "countries/fr.m3u",
+    "spain": "countries/es.m3u"
+}
 
-with open(INPUT, encoding="utf-8") as f:
-    lines = f.readlines()
+categories = {
+    "news": "categories/news.m3u",
+    "sports": "categories/sports.m3u",
+    "movies": "categories/movies.m3u"
+}
 
-filtered = []
+os.makedirs("playlists", exist_ok=True)
 
-for i in range(len(lines)):
-    line = lines[i].lower()
+def download(name, path):
+    url = f"{BASE}/{path}"
+    print(f"Downloading {name}...")
+    data = requests.get(url).text
+    
+    with open(f"playlists/{name}.m3u", "w", encoding="utf-8") as f:
+        f.write(data)
 
-    if any(k in line for k in KEYWORDS):
-        filtered.append(lines[i])
-        if i + 1 < len(lines):
-            filtered.append(lines[i + 1])
+# países
+for name, path in countries.items():
+    download(name, path)
 
-with open(OUTPUT, "w", encoding="utf-8") as f:
-    f.write("#EXTM3U\n")
-    f.writelines(filtered)
+# categorias
+for name, path in categories.items():
+    download(name, path)
 
-print("Playlist filtrada criada!")
+print("Playlists organizadas criadas!")
